@@ -86,7 +86,7 @@ jobs:
           CONFIG_TASKS_RCU=y" >> config/kernel/linux-"$BOARD_FAMILY"-"$BRANCH".config
 
           # Compile kernel.
-          ./compile.sh RELEASE=bookworm JUST_KERNEL=yes BUILD_ONLY=u-boot,kernel,armbian-config,armbian-bsp BOARD="$BOARD_NAME" BRANCH="$BRANCH" KERNEL_CONFIGURE=no BUILD_MINIMAL=yes
+          ./compile.sh RELEASE=bookworm JUST_KERNEL=yes BUILD_ONLY=kernel BOARD="$BOARD_NAME" BRANCH="$BRANCH" KERNEL_CONFIGURE=no BUILD_MINIMAL=yes
 
       - name: Extract Output
         id: output
@@ -94,10 +94,6 @@ jobs:
           cd build/output/debs/
           echo "ls build/output/debs"
           ls -al
-          echo "ls build/output/"
-          ls -al ..
-          echo "ls build"
-          ls -al ../..
           fname=$(ls --format single-column linux-image-*.deb | head -n 1)
           fpath=$(realpath ${fname})
           echo "FILE_DISPLAY_NAME=${fname}" >> $GITHUB_OUTPUT
