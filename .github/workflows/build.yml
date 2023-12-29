@@ -92,6 +92,9 @@ jobs:
         id: output
         run: |
           cd build/output/debs/
+          ls -al
+          ls -al ..
+          ls -al ../..
           fname=$(ls --format single-column kernel-*.tar | head -n 1)
           fpath=$(realpath ${fname})
           echo "FILE_DISPLAY_NAME=${fname}" >> $GITHUB_OUTPUT
