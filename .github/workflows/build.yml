@@ -92,8 +92,11 @@ jobs:
         id: output
         run: |
           cd build/output/debs/
+          echo "ls build/output/debs"
           ls -al
+          echo "ls build/output/"
           ls -al ..
+          echo "ls build"
           ls -al ../..
           fname=$(ls --format single-column kernel-*.tar | head -n 1)
           fpath=$(realpath ${fname})
