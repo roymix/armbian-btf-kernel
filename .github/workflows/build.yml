@@ -107,7 +107,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_name: roymix/armbian-btf-kernel
-          repo_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ steps.output.outputs.FILEPATH }}
           asset_name: ${{ steps.output.outputs.FILE_DISPLAY_NAME }}
           tag: ${{ needs.generate_release_info.outputs.release_name }}
